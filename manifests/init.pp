@@ -35,7 +35,64 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class paranoid-browser {
+class paranoid-browser (
+  $user = paranoid-browser::params::user,
+  $group = paranoid-browser::params::group,
+  $user_home = paranoid-browser::params::user_home,
 
+){
 
+}
+class browser {
+  user { $user: 
+    ensure  => present,
+    comment => 'Paranoid Browser,,,',
+    managehome => true,
+    groups => ['audio'],
+    password => '!',
+  }
+  file { $user_home:
+    ensure => 'directory',
+    group  => $group,
+    mode   => '777',
+    owner  => $user,
+    require => User[$user],
+  }
+  file { "${user}-sudoers":
+    path    => '/etc/sudoers',
+    source  => 'puppet:///modules/basic/sudoers',
+    owner => "root",
+    group => "root",
+    mode  => 440,
+    require => Package['sudo']
+  }
+  #file { '/home/palo/downloads':
+    #ensure => 'link',
+    #group  => '1000',
+    #mode   => '777',
+    #owner  => '1000',
+    #target => '/home/browser/',
+  #}
+  #file { [ 
+    #'/home/palo/.mozilla',
+    #'/home/palo/.cache/google-chrome',
+    #'/home/palo/.config/google-chrome',
+    #'/home/palo/.cache/chromium',
+    #'/home/palo/.config/chromium',
+  #]:
+    #ensure => absent,
+    #force => yes,
+  #}
+  case $operatingsystem {
+    debian:{
+      package { ['iceweasel','chromium']:
+        ensure => present,
+      }
+    }
+    default:{ 
+      package{ "firefox":
+        ensure  => present,
+      }
+    }
+  }
 }
