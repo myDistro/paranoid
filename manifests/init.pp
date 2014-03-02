@@ -36,14 +36,11 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class paranoid-browser (
-  $user = paranoid-browser::params::user,
-  $group = paranoid-browser::params::group,
-  $user_home = paranoid-browser::params::user_home,
+  $user      = $paranoid-browser::params::user,
+  $group     = $paranoid-browser::params::group,
+  $user_home = $paranoid-browser::params::user_home,
 
-){
-
-}
-class browser {
+) inherits paranoid-browser::params {
   user { $user: 
     ensure  => present,
     comment => 'Paranoid Browser,,,',
@@ -56,11 +53,13 @@ class browser {
     group  => $group,
     mode   => '777',
     owner  => $user,
-    require => User[$user],
+    require => [User[$user],Group[$group]]
   }
+  # create define for that to make it possible to use it for more 
+  # than one user
   file { "${user}-sudoers":
     path    => '/etc/sudoers',
-    source  => 'puppet:///modules/basic/sudoers',
+    source  => 'puppet:///modules/paranoid-browser/sudoers',
     owner => "root",
     group => "root",
     mode  => 440,
@@ -83,16 +82,16 @@ class browser {
     #ensure => absent,
     #force => yes,
   #}
-  case $operatingsystem {
-    debian:{
-      package { ['iceweasel','chromium']:
-        ensure => present,
-      }
-    }
-    default:{ 
-      package{ "firefox":
-        ensure  => present,
-      }
-    }
-  }
+  #case $operatingsystem {
+    #debian:{
+      #package { ['iceweasel','chromium']:
+        #ensure => present,
+      #}
+    #}
+    #default:{ 
+      #package{ "firefox":
+        #ensure  => present,
+      #}
+    #}
+  #}
 }
