@@ -36,27 +36,27 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class paranoid_browser (
-  $user      = 'browser',
-  $group     = 'browser',
-  $user_home = '/home/browser',
+  $browser_user  = 'browser',
+  $browser_group = 'browser',
+  $browser_home  = '/home/browser',
 ) {
-  user { $user: 
+  user { $browser_user: 
     ensure  => present,
     comment => 'Paranoid Browser,,,',
     managehome => true,
     groups => ['audio'],
     password => '!',
   }
-  file { $user_home:
+  file { $browser_home:
     ensure => 'directory',
-    group  => $group,
+    group  => $browser_group,
     mode   => '777',
-    owner  => $user,
-    require => [User[$user],Group[$group]]
+    owner  => $browser_user,
+    require => [User[$browser_user],Group[$browser_group]]
   }
   # create define for that to make it possible to use it for more 
   # than one user
-  file { "${user}-sudoers":
+  file { "sudoers":
     path    => '/etc/sudoers',
     source  => 'puppet:///modules/paranoid_browser/sudoers',
     owner => "root",
