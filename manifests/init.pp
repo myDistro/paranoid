@@ -1,6 +1,6 @@
-# == Class: paranoid-browser
+# == Class: paranoid_browser
 #
-# Full description of class paranoid-browser here.
+# Full description of class paranoid_browser here.
 #
 # === Parameters
 #
@@ -23,7 +23,7 @@
 #
 # === Examples
 #
-#  class { paranoid-browser:
+#  class { paranoid_browser:
 #    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #  }
 #
@@ -35,12 +35,11 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class paranoid-browser (
-  $user      = $paranoid-browser::params::user,
-  $group     = $paranoid-browser::params::group,
-  $user_home = $paranoid-browser::params::user_home,
-
-) inherits paranoid-browser::params {
+class paranoid_browser (
+  $user      = 'browser',
+  $group     = 'browser',
+  $user_home = '/home/browser',
+) {
   user { $user: 
     ensure  => present,
     comment => 'Paranoid Browser,,,',
@@ -59,7 +58,7 @@ class paranoid-browser (
   # than one user
   file { "${user}-sudoers":
     path    => '/etc/sudoers',
-    source  => 'puppet:///modules/paranoid-browser/sudoers',
+    source  => 'puppet:///modules/paranoid_browser/sudoers',
     owner => "root",
     group => "root",
     mode  => 440,
