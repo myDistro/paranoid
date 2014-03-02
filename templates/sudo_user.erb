@@ -1,0 +1,16 @@
+#
+# ============================================================================  
+# ___  ____ ____ ____ _  _ ____ _ ___     ___  ____ ____ _ _ _ ____ ____ ____ 
+# |__] |__| |__/ |__| |\ | |  | | |  \    |__] |__/ |  | | | | [__  |___ |__/ 
+# |    |  | |  \ |  | | \| |__| | |__/    |__] |  \ |__| |_|_| ___] |___ |  \ 
+#
+# ============================================================================  
+#
+Defaults:<%= @user %> env_reset
+Defaults:<%= @user %> env_keep += DISPLAY 
+Defaults:<%= @user %> env_keep += XAUTHORITY 
+
+<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/firefox
+<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/google-chrome
+<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/chromium
+<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/skype
