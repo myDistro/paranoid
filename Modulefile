@@ -1,4 +1,4 @@
-name    'myDistro-paranoid-browser'
+name    'myDistro-paranoid_browser'
 version '0.1.0'
 source 'UNKNOWN'
 author 'myDistro'
