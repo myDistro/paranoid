@@ -5,7 +5,7 @@ Defaults:<%= @user %> env_reset
 Defaults:<%= @user %> env_keep += DISPLAY 
 Defaults:<%= @user %> env_keep += XAUTHORITY 
 
-<%= @user %> ALL=(<%= @group %>) NOPASSWD: /usr/bin/firefox
-<%= @user %> ALL=(<%= @group %>) NOPASSWD: /usr/bin/google-chrome
-<%= @user %> ALL=(<%= @group %>) NOPASSWD: /usr/bin/chromium
-<%= @user %> ALL=(<%= @group %>) NOPASSWD: /usr/bin/skype
+<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/firefox
+<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/google-chrome
+<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/chromium
+<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/skype
