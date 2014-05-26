@@ -1,5 +1,5 @@
 name    'myDistro-paranoid_browser'
-version '0.1.0'
+version '0.1.1'
 source 'UNKNOWN'
 author 'myDistro'
 license 'Apache License, Version 2.0'
