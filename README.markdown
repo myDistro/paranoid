@@ -26,6 +26,6 @@ Usage
 Quickest way is:
     
     class { 'paranoid_browser': }
-    paranoid_browser::user { 'my_name': user => 'my_namem' }
+    paranoid_browser::user { 'my_name': user => 'my_name' }
 
 
