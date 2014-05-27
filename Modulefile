@@ -1,5 +1,5 @@
 name    'myDistro-paranoid'
-version '0.2'
+version '0.2.0'
 source 'https://github.com/myDistro/paranoid'
 author 'myDistro'
 license 'GPLv3'
