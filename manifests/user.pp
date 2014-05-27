@@ -12,7 +12,7 @@ define paranoid::user (
     group   => 'root',
     mode    => '0440',
     content => template('paranoid/sudo_user.erb'),
-    path    => "/etc/sudoers.d/paranoid_browser_${master}_${puppet}",
+    path    => "/etc/sudoers.d/paranoid_${master}_${puppet}",
     require => [Package['sudo'],User[$puppet],User[$master]],
   }
 

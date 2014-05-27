@@ -1,31 +1,53 @@
-paranoid-browser
+This is the paranoid module.
+It's basically the blog-post of [calium.org](http://calum.org/) :
+[running firefox as another user using sudo](http://calum.org/posts/running-firefox-as-another-user-using-sudo).
 
-This is the paranoid-browser module.
+It configures sudo so you can run the commons like firefox, chromium, google-chrome or skype as another user.
+You can use the class paranoid to set up the sudoers file, but you don't have to.
+If you don't use the paranoid class, you have to make sudo load the files in /etc/sudoers.d/ folder.
 
-I configures sudo to so you can run the common browsers firefox, chromium and google-chrome as another user.
-
-License
--------
-GPL v3
+Usage
+-----
 
 
-Contact
--------
-Ingolf Wagner <palipalo9@gmail.com>
+To run firefox and thunderbird as the user browser you can do the same thing.
+
+    /* 
+      not really necessary 
+      creates only good sudoers file
+    */
+    class { 'paranoid': } 
+    
+    /*
+      create a sudo file to run firefox and thunderbird
+      as user browser
+    */
+    paranoid::user { 'browsing': 
+        master   => 'my_name' ,
+        puppet   => 'browser',
+        binaries => ['/usr/bin/firefox',
+                     '/usr/bin/thunderbird'],
+    }
+
+Make sure you run a xhost for programs (like firefox) that need X.
+For example put in you ~/.xsession
+    
+    xhost +
+
+Now you can run firefox as user browser with the command
+    
+    sudo -u browser -H /usr/bin/firefox
+
+Or 
+
+    sudo -u browser -H firefox
+    
+
 
 
 Support
 -------
 
-Please log tickets and issues at our [Github](http://github.com/myDistro/paranoid_browser/issues)
-
-
-Usage
------
-
-Quickest way is:
-    
-    class { 'paranoid_browser': }
-    paranoid_browser::user { 'my_name': user => 'my_name' }
-
+* Have a look at [Puppet Forge](https://forge.puppetlabs.com/myDistro/paranoid)
+* Please log tickets and issues at [Github](http://github.com/myDistro/paranoid/issues)
 

@@ -27,7 +27,7 @@ class paranoid {
   # than one user
   file { "sudoers":
     path    => '/etc/sudoers',
-    source  => 'puppet:///modules/paranoid_browser/sudoers',
+    source  => 'puppet:///modules/paranoid/sudoers',
     owner => "root",
     group => "root",
     mode  => 440,

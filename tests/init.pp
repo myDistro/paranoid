@@ -11,6 +11,7 @@
  http://docs.puppetlabs.com/guides/tests_smoke.html
 */
 
+class { 'paranoid': } 
 
 package { 'sudo':
   ensure => present,
