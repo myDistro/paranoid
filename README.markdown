@@ -46,6 +46,7 @@ Or
 
 ## Links
 
+* [myDistro](http://myDistro.github.io)
 * [Puppet Forge](https://forge.puppetlabs.com/myDistro/paranoid)
 * [Github](http://github.com/myDistro/paranoid)
-* [myDistro](http://myDistro.github.io)
+* IRC : irc.freenode.net #myDistro
