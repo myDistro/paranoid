@@ -1,11 +1,11 @@
-name    'myDistro-paranoid_browser'
-version '0.1.1'
-source 'UNKNOWN'
+name    'myDistro-paranoid'
+version '0.2.0'
+source 'https://github.com/myDistro/paranoid'
 author 'myDistro'
-license 'Apache License, Version 2.0'
-summary 'UNKNOWN'
-description 'UNKNOWN'
-project_page 'UNKNOWN'
+license 'GPLv3'
+summary 'sudo configuration to run programs as dummy user'
+description 'It configures sudo so you can run the commons like firefox, chromium, google-chrome or skype as another user.'
+project_page 'http://mydistro.github.io/'
 
 ## Add dependencies, if any:
 # dependency 'username/name', '>= 1.2.0'

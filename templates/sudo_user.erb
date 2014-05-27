@@ -6,11 +6,11 @@
 #
 # ============================================================================  
 #
-Defaults:<%= @user %> env_reset
-Defaults:<%= @user %> env_keep += DISPLAY 
-Defaults:<%= @user %> env_keep += XAUTHORITY 
+Defaults:<%= @master %> env_reset
+Defaults:<%= @master %> env_keep += DISPLAY 
+Defaults:<%= @master %> env_keep += XAUTHORITY 
 
-<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/firefox
-<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/google-chrome
-<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/chromium
-<%= @user %> ALL=(<%= scope.lookupvar('paranoid_browser::browser_group') %>) NOPASSWD: /usr/bin/skype
+<% @binaries.each do |val| -%>
+<%= @master %> ALL=(<%= @puppet %>) NOPASSWD: <%= val %>
+<% end -%>
+
