@@ -48,4 +48,4 @@ Or
 
 * [Puppet Forge](https://forge.puppetlabs.com/myDistro/paranoid)
 * [Github](http://github.com/myDistro/paranoid)
-* [myDistro](myDistro.github.io)
+* [myDistro](http://myDistro.github.io)
