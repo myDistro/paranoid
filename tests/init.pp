@@ -19,9 +19,15 @@ user { ['palo','dummy']:
   ensure => present,
 }
 
-# this is how it should be used
-paranoid::user { "title":
+paranoid::user { "easy":
     master   => 'palo',
     puppet   => 'dummy',
     binaries => ['/usr/bin/firefox','/usr/bin/thunderbird'],
+}
+
+paranoid::user { "manage-puppet":
+    master   => 'palo',
+    puppet   => 'foo',
+    binaries => ['/usr/bin/firefox','/usr/bin/thunderbird'],
+    managePuppet => true,
 }

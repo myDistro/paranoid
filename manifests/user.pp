@@ -6,7 +6,7 @@ define paranoid::user (
 
 ) {
 
-  file { "paranoid-${master}-sudoconfig" :
+  file { "sudoconfig-${master}-${puppet}" :
     ensure  => present,
     owner   => 'root',
     group   => 'root',
@@ -23,6 +23,9 @@ define paranoid::user (
       managehome => true,
       groups => ['audio'],
       password => '!',
+    }
+    group { $puppet:
+      ensure => present,
     }
     file { "/home/${puppet}":
       ensure => 'directory',
