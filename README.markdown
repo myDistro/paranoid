@@ -6,8 +6,7 @@ It configures sudo so you can run the commons like firefox, chromium, google-chr
 You can use the class paranoid to set up the sudoers file, but you don't have to.
 If you don't use the paranoid class, you have to make sudo load the files in /etc/sudoers.d/ folder.
 
-Usage
------
+## Usage
 
 
 To run firefox and thunderbird as the user browser you can do the same thing.
@@ -45,9 +44,8 @@ Or
 
 
 
-Support
--------
+## Links
 
-* Have a look at [Puppet Forge](https://forge.puppetlabs.com/myDistro/paranoid)
-* Please log tickets and issues at [Github](http://github.com/myDistro/paranoid/issues)
-
+* [Puppet Forge](https://forge.puppetlabs.com/myDistro/paranoid)
+* [Github](http://github.com/myDistro/paranoid)
+* [myDistro](myDistro.github.io)
