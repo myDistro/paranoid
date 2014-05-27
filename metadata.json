@@ -1,0 +1,27 @@
+{
+  "operatingsystem_support": [
+    { "operatingsystem": "Debian",
+      "operatingsystemrelease": [ "6", "7" ]
+    },
+    { "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [ "10.04", "12.04", "14.04" ]
+    }
+  ],
+  "requirements": [
+    { "name":                "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
+  "name": "myDistro-paranoid",
+  "version": "0.2.1",
+  "author": "myDistro",
+  "summary": "sudo configuration to run programs as dummy user",
+  "license": "GPLv3",
+  "source": "https://github.com/myDistro/paranoid",
+  "project_page": "http://mydistro.github.io/",
+  "issues_url": "https://github.com/myDistro/paranoid/issues",
+  "description": "It configures sudo so you can run the commons like firefox, chromium, google-chrome or skype as another user.",
+  "dependencies": [
+  
+  ]
+}
